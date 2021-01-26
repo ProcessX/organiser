@@ -1,5 +1,7 @@
 class Task:
 
-    def __init__(self) -> None:
-        
+    description = 'My task'
+
+    def __init__(self, description) -> None:
+        self.description = description
         pass
