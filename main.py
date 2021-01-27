@@ -1,9 +1,10 @@
 from interface import Interface
+from interfaceOrganiser import InterfaceOrganiser
 
 class Main:
 
 
-    myInterface = Interface()
+    myInterface = InterfaceOrganiser()
 
 
     def __init__(self) -> None:
