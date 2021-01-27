@@ -4,10 +4,11 @@ class Interface:
     'Command-line interface system'
 
 
+    running = False
     commands = {}
     callToAction = 'Votre action?'
     title = 'Title'
-    message = 'Bienvenue'
+    message = None
 
 
     def __init__(self) -> None:
@@ -15,13 +16,18 @@ class Interface:
             self.displayCommands,
             'Display command list'
         ]
+
+        self.commands['return'] = [
+            self.goBack,
+            'Go Back'
+        ]
         pass
 
 
     def run(self):
         # Run the interface module
-        running = True
-        while(running):
+        self.running = True
+        while(self.running):
             self.clearInterface()
             self.displayInterface()
             userInput = input(f'{self.callToAction} ')
@@ -30,16 +36,14 @@ class Interface:
 
     def runCommand(self, cmd):
         # Run the command entered by the user
+        # Change the message to error if cmd isn't recognised
         # @param cmd : title of the entered command
-        print(f'Run command: {cmd}')
-
         command = self.commands.get(cmd, False)
         if(not command):
             self.message = 'Error: cmd invalid'
-            return False
+            return True
         else:
-            command[0]()
-        return True
+            return command[0]()
 
 
     def clearInterface(self):
@@ -52,7 +56,7 @@ class Interface:
 
 
     def displayInterface(self):
-        # Display the content of the interface
+        # Display the content of the interface (title + message)
         print(self.title)
         if(self.message):
             print(self.message)
@@ -68,8 +72,8 @@ class Interface:
         return
 
     
-    def quit(self):
-        # Quit the current interface and return to the previous one.
-        return
+    def goBack(self):
+        # Return to the previous interface level.
+        self.running = False
 
     
