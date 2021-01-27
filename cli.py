@@ -1,3 +1,4 @@
+import os
 from organiser import Organiser
 
 class CLI:
@@ -21,6 +22,15 @@ class CLI:
         self.myOrganiser.deleteTodo(0)
         print(len(self.myOrganiser.todos))
         pass
+
+
+    def displayInterface(self):
+        return
+
+    
+    def displayTitle(self):
+
+        return
 
 
 interface = CLI()
