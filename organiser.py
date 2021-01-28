@@ -3,7 +3,9 @@ from components.todo import Todo
 class Organiser:
     'Personal organiser with : todos'
 
+
     todos = []
+
 
     def __init__(self) -> None:
         pass
@@ -14,12 +16,14 @@ class Organiser:
         # @param title : title of the new todo
         self.todos.append(Todo(title))
         return
+
     
     def deleteTodo(self, index):
         # Delete the todo at the specified index from the list.
         # @param index : index of the todo to delete
         del self.todos[index]
         return
+
     
     def renameTodo(self, index, newTitle):
         # Pass a new title to the todo.

@@ -6,7 +6,7 @@ class Interface:
 
     running = False
     commands = {}
-    callToAction = 'Votre action?'
+    callToAction = 'Your action?'
     title = 'Title'
     message = None
 
@@ -29,7 +29,9 @@ class Interface:
         self.running = True
         while(self.running):
             self.clearInterface()
+            self.displayTitle()
             self.displayInterface()
+            self.displayMessage()
             userInput = input(f'{self.callToAction} ')
             self.runCommand(userInput)
 
@@ -57,7 +59,19 @@ class Interface:
 
     def displayInterface(self):
         # Display the content of the interface (title + message)
+        return
+
+
+    def displayTitle(self):
+        # Display the title of the module
+        titleLen = len(self.title)
+        print('-' * titleLen)
         print(self.title)
+        print(('-' * titleLen) + '\n')
+
+
+    def displayMessage(self):
+        # Display the message if there is any.
         if(self.message):
             print(self.message)
             self.message = None
