@@ -1,3 +1,4 @@
+from interfaceTodoList import InterfaceTodoList
 from interface import Interface
 from organiser import Organiser
 
@@ -7,6 +8,7 @@ class InterfaceOrganiser(Interface):
 
 
     myOrganiser = Organiser()
+    interfaceTodoList = None
 
 
     def __init__(self) -> None:
@@ -16,6 +18,7 @@ class InterfaceOrganiser(Interface):
             self.accessTodos,
             'Access your todos'
         ]
+        self.interfaceTodoList = InterfaceTodoList(self.myOrganiser.todos)
     
 
     def displayInterface(self):
@@ -25,4 +28,5 @@ class InterfaceOrganiser(Interface):
     
     def accessTodos(self):
         # Run the todo module.
+        self.interfaceTodoList.run()
         return
